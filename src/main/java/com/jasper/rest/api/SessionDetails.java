@@ -37,4 +37,14 @@ public class SessionDetails {
     public String getIpAddress() {
         return ipAddress;
     }
+
+    @Override
+    public String toString() {
+        return new org.apache.commons.lang3.builder.ToStringBuilder(this)
+                .append("iccid", iccid)
+                .append("lastSessionStartTime", lastSessionStartTime)
+                .append("lastSessionEndTime", lastSessionEndTime)
+                .append("ipAddress", ipAddress)
+                .toString();
+    }
 }
