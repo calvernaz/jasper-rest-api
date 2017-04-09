@@ -23,7 +23,6 @@ public class JasperRestApiClient {
     }
 
     public Call<SessionDetails> getSessionDetails(String authorization, String iccid) {
-        LOG.info("Get session details for {}", iccid);
         return this.api.getSessionDetails(authorization, iccid);
     }
 
