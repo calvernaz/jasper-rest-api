@@ -4,21 +4,23 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 
+import org.apache.commons.lang3.builder.ToStringBuilder;
+
 import java.util.Date;
 
 @JsonSerialize
 public class SessionDetails {
     private String iccid;
-    private Date lastSessionStartTime;
-    private Date lastSessionEndTime;
+    private Date dateSessionStarted;
+    private Date dateSessionEnded;
     private String ipAddress;
 
     @JsonCreator
-    public SessionDetails(@JsonProperty("iccid") String iccid, @JsonProperty("lastSessionStartTime") Date lastSessionStartTime,
-                          @JsonProperty("lastSessionEndTime") Date lastSessionEndTime, @JsonProperty("ipAddress") String ipAddress) {
+    public SessionDetails(@JsonProperty("iccid") String iccid, @JsonProperty("dateSessionStarted") Date dateSessionStarted,
+                          @JsonProperty("dateSessionEnded") Date dateSessionEnded, @JsonProperty("ipAddress") String ipAddress) {
         this.iccid = iccid;
-        this.lastSessionStartTime = lastSessionStartTime;
-        this.lastSessionEndTime = lastSessionEndTime;
+        this.dateSessionStarted = dateSessionStarted;
+        this.dateSessionEnded = dateSessionEnded;
         this.ipAddress = ipAddress;
     }
 
@@ -26,24 +28,25 @@ public class SessionDetails {
         return iccid;
     }
 
-    public Date getLastSessionStartTime() {
-        return lastSessionStartTime;
-    }
-
-    public Date getLastSessionEndTime() {
-        return lastSessionEndTime;
-    }
 
     public String getIpAddress() {
         return ipAddress;
     }
 
+    public Date getDateSessionStarted() {
+        return dateSessionStarted;
+    }
+
+    public Date getDateSessionEnded() {
+        return dateSessionEnded;
+    }
+
     @Override
     public String toString() {
-        return new org.apache.commons.lang3.builder.ToStringBuilder(this)
+        return new ToStringBuilder(this)
                 .append("iccid", iccid)
-                .append("lastSessionStartTime", lastSessionStartTime)
-                .append("lastSessionEndTime", lastSessionEndTime)
+                .append("dateSessionStarted", dateSessionStarted)
+                .append("dateSessionEnded", dateSessionEnded)
                 .append("ipAddress", ipAddress)
                 .toString();
     }
