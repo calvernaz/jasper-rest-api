@@ -7,8 +7,8 @@ import retrofit2.converter.jackson.JacksonConverterFactory;
 public class JasperRestApiClient {
     private final JasperRestApi api;
 
-    public static JasperRestApiClient create() {
-        return new JasperRestApiClient("https://restapi-telstra.jasper.com/");
+    public static JasperRestApiClient create(String url) {
+        return new JasperRestApiClient(url);
     }
 
     public JasperRestApiClient(String apiUrl) {
