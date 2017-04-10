@@ -21,7 +21,7 @@ public interface JasperRestApi {
             "Accept: application/json"
     })
     @GET("devices")
-    Call<Devices> searchDevices(@Header("Authorization: Basic ") String authorization,
+    Call<Devices> searchDevices(@Header("Authorization") String authorization,
                                 @Query("accountId") Long accountId, @Query("modifiedSince") Date modifiedSince,
                                 @Query("pageSize") Integer pageSize, @Query("pageNumber") Integer pageNumber);
 
@@ -29,13 +29,13 @@ public interface JasperRestApi {
             "Accept: application/json"
     })
     @GET("devices/{iccid}")
-    Call<DeviceDetails> getDeviceDetails(@Header("Authorization: Basic ") String authorization, @Path("iccid") String iccid);
+    Call<DeviceDetails> getDeviceDetails(@Header("Authorization") String authorization, @Path("iccid") String iccid);
 
     @Headers({
             "Accept: application/json"
     })
     @PUT("devices/{iccid}")
-    Call<Iccid> editDeviceDetails(@Header("Authorization: Basic ") String authorization, @Body EditDetailsRequest editDetailsRequest);
+    Call<Iccid> editDeviceDetails(@Header("Authorization") String authorization, @Body EditDetailsRequest editDetailsRequest);
 
     /**
      * Get Session Details
@@ -43,8 +43,8 @@ public interface JasperRestApi {
     @Headers({
             "Accept: application/json"
     })
-    @GET("devices/{iccid}/sessionInfo")
-    Call<SessionDetails> getSessionDetails(@Header("Authorization: Basic ") String authorization, @Path("iccid") String iccid);
+    @GET("rws/api/v1/devices/{iccid}/sessionInfo")
+    Call<SessionDetails> getSessionDetails(@Header("Authorization") String authorization, @Path("iccid") String iccid);
 
     /**
      * SMS Message Resources
@@ -52,21 +52,21 @@ public interface JasperRestApi {
     @Headers({
             "Accept: application/json"
     })
-    @POST("smsMessages")
-    Call<SentSmsId> sendSms(@Header("Authorization: Basic ") String authorization, @Body Sms sms);
+    @POST("rws/api/v1/smsMessages")
+    Call<SentSmsId> sendSms(@Header("Authorization") String authorization, @Body Sms sms);
 
     @Headers({
             "Accept: application/json"
     })
     @GET("smsMessages/{smsMsgId}")
-    Call<SmsDetails> getSmsDetails(@Header("Authorization: Basic ") String authorization, @Path("smsMsgId") String smsMsgId,
+    Call<SmsDetails> getSmsDetails(@Header("Authorization") String authorization, @Path("smsMsgId") String smsMsgId,
                                    @Query("messageEncoding") String messageEncoding);
 
     @Headers({
             "Accept: application/json"
     })
     @GET("smsMessages")
-    Call<SmsMessageIds> searchSms(@Header("Authorization: Basic ") String authorization, @Query("accountId") Long accountId,
+    Call<SmsMessageIds> searchSms(@Header("Authorization") String authorization, @Query("accountId") Long accountId,
                                   @Query("iccid") String iccid, @Query("fromDate") Date fromDate, @Query("toDate") Date toDate,
                                   @Query("pageSize") Integer pageSize, @Query("pageNumber") Integer pageNumber);
 
@@ -77,13 +77,13 @@ public interface JasperRestApi {
             "Accept: application/json"
     })
     @GET("devices/{iccid}/ctdUsages")
-    Call<DeviceUsage> getDeviceUsage(@Header("Authorization: Basic ") String authorization, @Path("iccid") String iccid);
+    Call<DeviceUsage> getDeviceUsage(@Header("Authorization") String authorization, @Path("iccid") String iccid);
 
     @Headers({
             "Accept: application/json"
     })
     @GET("devices/{iccid}/usageInZone")
-    Call<DeviceUsageByZone> getDeviceUsageByNow(@Header("Authorization: Basic ") String authorization, @Path("iccid") String iccid,
+    Call<DeviceUsageByZone> getDeviceUsageByNow(@Header("Authorization") String authorization, @Path("iccid") String iccid,
                                                 @Query("cycleStartDate") Date cycleStartDate, @Query("ratePlan") String ratePlan,
                                                 @Query("zone") String zone);
 
@@ -94,5 +94,5 @@ public interface JasperRestApi {
             "Accept: application/json"
     })
     @GET("echo/{param}")
-    Call<EchoResponse> echo(@Header("Authorization: Basic ") String authorization, @Path("param") String param);
+    Call<EchoResponse> echo(@Header("Authorization") String authorization, @Path("param") String param);
 }

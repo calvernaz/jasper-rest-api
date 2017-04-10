@@ -1,23 +1,21 @@
 package com.jasper.rest.api;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 
 import org.apache.commons.lang3.builder.ToStringBuilder;
 
-import java.util.Date;
-
-@JsonSerialize
+@JsonIgnoreProperties
 public class SessionDetails {
     private String iccid;
-    private Date dateSessionStarted;
-    private Date dateSessionEnded;
+    private String dateSessionStarted;
+    private String dateSessionEnded;
     private String ipAddress;
 
     @JsonCreator
-    public SessionDetails(@JsonProperty("iccid") String iccid, @JsonProperty("dateSessionStarted") Date dateSessionStarted,
-                          @JsonProperty("dateSessionEnded") Date dateSessionEnded, @JsonProperty("ipAddress") String ipAddress) {
+    public SessionDetails(@JsonProperty("iccid") String iccid, @JsonProperty("dateSessionStarted") String dateSessionStarted,
+                          @JsonProperty("dateSessionEnded") String dateSessionEnded, @JsonProperty("ipAddress") String ipAddress) {
         this.iccid = iccid;
         this.dateSessionStarted = dateSessionStarted;
         this.dateSessionEnded = dateSessionEnded;
@@ -33,11 +31,11 @@ public class SessionDetails {
         return ipAddress;
     }
 
-    public Date getDateSessionStarted() {
+    public String getDateSessionStarted() {
         return dateSessionStarted;
     }
 
-    public Date getDateSessionEnded() {
+    public String getDateSessionEnded() {
         return dateSessionEnded;
     }
 
