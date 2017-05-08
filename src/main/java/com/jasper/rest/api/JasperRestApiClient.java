@@ -11,7 +11,7 @@ public class JasperRestApiClient {
         return new JasperRestApiClient(url);
     }
 
-    public JasperRestApiClient(String apiUrl) {
+    protected JasperRestApiClient(String apiUrl) {
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl(apiUrl)
                 .addConverterFactory(JacksonConverterFactory.create())

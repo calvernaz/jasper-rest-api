@@ -52,8 +52,8 @@ public interface JasperRestApi {
     @Headers({
             "Accept: application/json"
     })
-    @POST("rws/api/v1/smsMessages")
-    Call<SentSmsId> sendSms(@Header("Authorization") String authorization, @Body Sms sms);
+    @POST("rws/api/v1/devices/{iccid}/smsMessages")
+    Call<SentSmsId> sendSms(@Header("Authorization") String authorization, @Path("iccid") String iccid, @Body Sms sms);
 
     @Headers({
             "Accept: application/json"
