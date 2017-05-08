@@ -23,7 +23,7 @@ public class JasperRestApiClient {
         return this.api.getSessionDetails(authorization, iccid);
     }
 
-    public Call<SentSmsId> sendSms(String authorization, Sms sms) {
-        return this.api.sendSms(authorization, sms);
+    public Call<SentSmsId> sendSms(String authorization, String iccid, Sms sms) {
+        return this.api.sendSms(authorization, iccid, sms);
     }
 }
