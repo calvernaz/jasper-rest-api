@@ -6,14 +6,15 @@ import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 
 @JsonSerialize
 public class SentSmsId {
-    private final String smsMsgId;
+  private final String smsMessageId;
 
-    @JsonCreator
-    public SentSmsId(@JsonProperty("smsMsgId") String smsMsgId) {
-        this.smsMsgId = smsMsgId;
-    }
+  @JsonCreator
+  public SentSmsId(@JsonProperty("smsMessageId") String smsMsgId) {
+    this.smsMessageId = smsMsgId;
+  }
 
-    public String getSmsMsgId() {
-        return smsMsgId;
-    }
+  public String getSmsMessageId() {
+    return smsMessageId;
+  }
+
 }
