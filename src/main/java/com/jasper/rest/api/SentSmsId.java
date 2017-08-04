@@ -1,9 +1,11 @@
 package com.jasper.rest.api;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 
+@JsonIgnoreProperties(ignoreUnknown = true)
 @JsonSerialize
 public class SentSmsId {
   private final String smsMessageId;

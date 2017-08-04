@@ -6,7 +6,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 import org.apache.commons.lang3.builder.ToStringBuilder;
 
-@JsonIgnoreProperties
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class SessionDetails {
     private String iccid;
     private String dateSessionStarted;
